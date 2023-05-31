@@ -2,4 +2,13 @@
   color: #4682b4;
 }
 
+.movie-img {
+  height: auto;
+  max-height: 150px;
+  max-width: 150px;
+  vertical-align: middle;
+  width: auto;
+  border-width: 0;
+}
+
 /*# sourceMappingURL=index.ce1d6491.css.map */
