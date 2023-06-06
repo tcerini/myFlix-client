@@ -11,7 +11,7 @@ export const MainView = () => {
     fetch("https://tc-movie-api.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        console.log("movies from api:", data);
+        console.log("Movies from API:", data);
       });
   }, []);
 
