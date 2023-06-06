@@ -8,7 +8,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    fetch("https://openlibrary.org/search.json?q=star+wars")
+    fetch("https://tc-movie-api.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
         console.log("movies from api:", data);
