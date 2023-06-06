@@ -27159,19 +27159,32 @@ const MainView = ()=>{
     _s();
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://tc-movie-api.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            console.log("Movies from API:", data);
+        });
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 12,
+=======
+        lineNumber: 21,
+>>>>>>> Stashed changes
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 17,
+=======
+        lineNumber: 26,
+>>>>>>> Stashed changes
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27182,16 +27195,28 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
                 lineNumber: 23,
+=======
+                lineNumber: 32,
+>>>>>>> Stashed changes
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< Updated upstream
         lineNumber: 21,
         columnNumber: 5
     }, undefined);
 };
 _s(MainView, "jzuc4/Y81KLA8pUTcmWNL/aPH2I=");
+=======
+        lineNumber: 30,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
+>>>>>>> Stashed changes
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");

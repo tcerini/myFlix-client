@@ -3,9 +3,18 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
+  
   const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    fetch("https://tc-movie-api.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Movies from API:", data);
+      });
+  }, []);
 
   if (selectedMovie) {
     return (
