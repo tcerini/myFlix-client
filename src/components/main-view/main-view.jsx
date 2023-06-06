@@ -7,14 +7,6 @@ export const MainView = () => {
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  useEffect(() => {
-    fetch("https://openlibrary.org/search.json?q=star+wars")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("movies from api:", data);
-      });
-  }, []);
-
   if (selectedMovie) {
     return (
       <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
