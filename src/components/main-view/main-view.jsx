@@ -12,6 +12,7 @@ export const MainView = () => {
     fetch("https://tc-movie-api.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const moviesFromAPI = data.map((movie) => {
           return {
             _id: movie._id,
@@ -21,7 +22,7 @@ export const MainView = () => {
               Description: movie.Genre.Description,
             },
             Director: {
-              DirectorName: movie.Director.Name,
+              Name: movie.Director.Name,
               Bio: movie.Director.Bio,
               Birth: movie.Director.Birth,
               Death: movie.Director.Death
