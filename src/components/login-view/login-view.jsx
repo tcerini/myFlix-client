@@ -1,5 +1,8 @@
 import React from "react";
 
+const [username, setUsername] = useState("")
+const [password, setPassword] = useState("")
+
 export const LoginView = () => {
     return (
       <form>
