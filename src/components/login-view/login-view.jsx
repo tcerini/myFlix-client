@@ -10,8 +10,8 @@ export const LoginView = ({ onLoggedIn } ) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      Username: username,
+      Password: password
     };
 
     fetch("https://tc-movie-api.herokuapp.com/login", {
