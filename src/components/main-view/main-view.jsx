@@ -10,16 +10,29 @@ export const MainView = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("https://tc-movie-api.herokuapp.com/movies")
+    if (!token) {
+      return;
+    }
+
+    fetch("https://tc-movie-api.herokuapp.com/movies", {
+      headers: { Authorization: 'Bearer ${token}' }
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setMovies(data)
       });
-  }, []);
+  }, [token]);
 
   if (!user) {
-    return <LoginView />;
+    return (
+      <LoginView 
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }}
+      />
+    );
   }
 
   if (selectedMovie) {
@@ -34,15 +47,19 @@ export const MainView = () => {
 
   return (
     <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie._id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
+      <div>
+        {movies.map((movie) => (
+          <MovieCard
+            key={movie._id}
+            movie={movie}
+            onMovieClick={(newSelectedMovie) => {
+              setSelectedMovie(newSelectedMovie);
+            }}
+          />
+        ))}
+      </div>  
+      <button onClick={() => { setUser(null); }}>Logout</button>
     </div>
   );
+
 };
