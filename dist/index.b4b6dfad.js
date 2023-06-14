@@ -27169,7 +27169,7 @@ const MainView = ()=>{
         if (!token) return;
         fetch("https://tc-movie-api.herokuapp.com/movies", {
             headers: {
-                Authorization: "Bearer ${token}"
+                Authorization: `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
             console.log(data);
