@@ -1,4 +1,5 @@
 import{ useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -33,7 +34,7 @@ export const SignupView = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <label>
         Username:
         <input
@@ -71,7 +72,7 @@ export const SignupView = () => {
           required
         />
       </label>
-      <button type="submit">Submit</button>
-    </form>
+      <Button variant="primary" type="submit"> Submit </Button>
+    </Form>
   );
 };
