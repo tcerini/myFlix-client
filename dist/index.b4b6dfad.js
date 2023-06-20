@@ -41054,7 +41054,7 @@ const LoginView = ({ onLoggedIn  })=>{
             alert("Something went wrong");
         });
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
         onSubmit: handleSubmit,
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -41110,7 +41110,7 @@ const LoginView = ({ onLoggedIn  })=>{
                 lineNumber: 54,
                 columnNumber: 9
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 variant: "primary",
                 type: "submit",
                 children: "Submit"
