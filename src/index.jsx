@@ -11,6 +11,7 @@ const MyFlixApplication = () => {
     <Container>
       <MainView />
     </Container>   
+  )
 };
 
 // Finds the root of your app
