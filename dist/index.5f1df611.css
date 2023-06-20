@@ -13198,12 +13198,11 @@ textarea.form-control-lg {
 }
 
 .movie-img {
-  height: auto;
-  max-height: 150px;
-  max-width: 150px;
-  vertical-align: middle;
-  width: auto;
-  border-width: 0;
+  width: 400px;
+}
+
+.moviecard-img {
+  max-width: 200px;
 }
 
 /*# sourceMappingURL=index.5f1df611.css.map */

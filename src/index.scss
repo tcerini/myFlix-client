@@ -7,10 +7,9 @@ $color: steelblue;
 }
 
 .movie-img {
-  border-width: 0;
-  height: auto;
-  max-height: 150px;
-  max-width: 150px;
-  vertical-align: middle;
-  width: auto;
+  width: 400px;
+}
+
+.moviecard-img {
+  max-width: 200px;
 }

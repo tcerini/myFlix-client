@@ -3,7 +3,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 export const MainView = () => {
   
@@ -31,22 +31,26 @@ export const MainView = () => {
 
   if (!user) {
     return (
-      <>
-      <LoginView 
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
-      or
-      <SignupView />
-      </>
+      <Row>
+        <LoginView 
+          onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+          }}
+        />
+        or
+        <SignupView />
+      </Row>
     );
   }
 
   if (selectedMovie) {
     return (
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
+      <Row>
+        <Col md={6}>
+          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
+        </Col>
+      </Row>
     );
   }
 
@@ -56,17 +60,16 @@ export const MainView = () => {
 
   return (
     <div>
-      <div>
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }}
-          />
-        ))}
-      </div>  
+          {movies.map((movie) => (
+            <Col key={movie._id} md={3}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ))} 
       <Button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
     </div>
   );
