@@ -32,14 +32,16 @@ export const MainView = () => {
   if (!user) {
     return (
       <Row>
-        <LoginView 
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-        />
-        or
-        <SignupView />
+        <Col>
+          <LoginView 
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+          or
+          <SignupView />
+        </Col>
       </Row>
     );
   }
@@ -47,7 +49,7 @@ export const MainView = () => {
   if (selectedMovie) {
     return (
       <Row>
-        <Col md={6}>
+        <Col md={{ span:6, offset:3 }}>
           <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
         </Col>
       </Row>
@@ -59,9 +61,10 @@ export const MainView = () => {
   }
 
   return (
-    <div>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <Row>
           {movies.map((movie) => (
-            <Col key={movie._id} md={3}>
+            <Col key={movie._id} md={3} className="mb-5">
               <MovieCard
                 movie={movie}
                 onMovieClick={(newSelectedMovie) => {
@@ -69,7 +72,8 @@ export const MainView = () => {
                 }}
               />
             </Col>
-          ))} 
+          ))}
+        </Row> 
       <Button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
     </div>
   );

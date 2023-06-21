@@ -1,6 +1,8 @@
+
 @import '~bootstrap/scss/bootstrap.scss';
 
 $color: steelblue;
+
 
 .my-flix {
   color: $color;
@@ -12,4 +14,8 @@ $color: steelblue;
 
 .moviecard-img {
   max-width: 200px;
+}
+
+.info-category {
+  font-weight: bold;
 }

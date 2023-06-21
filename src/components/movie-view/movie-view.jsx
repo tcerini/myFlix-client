@@ -1,44 +1,46 @@
 import PropTypes from "prop-types";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import "./movie-view.scss";
 
 export const MovieView = ({ movie, onBackClick }) => {
     return (
-      <div>
-        <div>
-          <img className="movie-img" src={movie.ImagePath} />
+      <Card className="shadow p-3 mb-5 bg-white rounded">
+        <div className="card mx-auto">
+          <Card.Img className="movie-img" src={movie.ImagePath} />
         </div>
-        <div>
-          <span>Title: </span>
-          <span>{movie.Title}</span>
-        </div>
-        <div>
-          <span>Plot: </span>
-          <span>{movie.Description}</span>
-        </div>
-        <div>
-          <span>Genre: </span>
-          <span>{movie.Genre.Name}</span>
-        </div>
-        <div>
-          <span>Genre Description: </span>
-          <span>{movie.Genre.Description}</span>
-        </div>
-        <div>
-          <span>Director: </span>
-          <span>{movie.Director.Name}</span>
-        </div>
-        <div>
-          <span>Biography: </span>
-          <span>{movie.Director.Bio}</span>
-        </div>
-        <Button 
-          onClick={onBackClick} 
-          className="back-button"
-          style={{ cursor: "pointer"}}
-          > Back
-        </Button>
-      </div>
+        <Card.Body>
+          <div>
+            <span className="info-category">Title: </span>
+            <span>{movie.Title}</span>
+          </div>
+          <div>
+            <span className="info-category">Plot: </span>
+            <span>{movie.Description}</span>
+          </div>
+          <div>
+            <span className="info-category">Genre: </span>
+            <span>{movie.Genre.Name}</span>
+          </div>
+          <div>
+            <span className="info-category">Genre Description: </span>
+            <span>{movie.Genre.Description}</span>
+          </div>
+          <div>
+            <span className="info-category">Director: </span>
+            <span>{movie.Director.Name}</span>
+          </div>
+          <div>
+            <span className="info-category">Biography: </span>
+            <span>{movie.Director.Bio}</span>
+          </div>
+          <Button 
+            onClick={onBackClick} 
+            className="back-button"
+            style={{ cursor: "pointer"}}
+            > Back
+          </Button>
+        </Card.Body>
+      </Card>
     );
 };
 
