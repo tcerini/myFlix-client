@@ -4,6 +4,7 @@ import "./movie-view.scss";
 import { Link } from "react-router-dom";
 
 export const MovieView = ({ movie }) => {
+
     return (
       <Card className="shadow p-3 mb-5 bg-white rounded">
         <div className="card mx-auto">
