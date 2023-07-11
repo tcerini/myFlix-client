@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 
 // The MovieCard function component 
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   return (
     <div>
       <Card className="shadow p-3 mb-5 bg-white rounded">
@@ -10,9 +10,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Director.Name}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="link">
-            Open
-          </Button>
+          <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+            <Button variant="link">Open</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
