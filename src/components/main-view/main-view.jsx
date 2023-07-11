@@ -32,6 +32,12 @@ export const MainView = () => {
 
   return (
     <BrowserRouter>
+      <NavigationBar
+          user={user}
+          token={token}
+          setUser={setUser}
+          setToken={setToken}
+      />    
       <Row className="justify-content-md-center">
         <Routes>
 

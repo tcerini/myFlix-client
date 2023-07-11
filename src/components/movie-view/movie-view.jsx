@@ -2,8 +2,12 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import "./movie-view.scss";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
-export const MovieView = ({ movie }) => {
+export const MovieView = ({ movies }) => {
+
+    const { movieId } = useParams();
+    const movie = movies.find((movie) => movie._id === movieId);
 
     return (
       <Card className="shadow p-3 mb-5 bg-white rounded">
