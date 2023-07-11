@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import "./movie-view.scss";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movie }) => {
     return (
       <Card className="shadow p-3 mb-5 bg-white rounded">
         <div className="card mx-auto">
