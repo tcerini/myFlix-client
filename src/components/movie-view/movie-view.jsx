@@ -33,12 +33,9 @@ export const MovieView = ({ movie, onBackClick }) => {
             <span className="info-category">Biography: </span>
             <span>{movie.Director.Bio}</span>
           </div>
-          <Button 
-            onClick={onBackClick} 
-            className="back-button"
-            style={{ cursor: "pointer"}}
-            > Back
-          </Button>
+          <Link to={`/`}>
+            <Button>Back</Button>
+          </Link>
         </Card.Body>
       </Card>
     );
