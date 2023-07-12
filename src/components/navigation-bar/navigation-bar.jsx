@@ -21,7 +21,7 @@ export const NavigationBar = ({ user, setUser, setToken }) => {
                         Home
                     </Nav.Link>
 
-                    <Nav.Link className='nav-text font-style' href='/users'>
+                    <Nav.Link className='nav-text font-style' href='/profile'>
                         Profile
                     </Nav.Link>
 

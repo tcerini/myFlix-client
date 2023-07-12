@@ -47432,7 +47432,7 @@ const NavigationBar = ({ user , setUser , setToken  })=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                 className: "nav-text font-style",
-                                href: "/users",
+                                href: "/profile",
                                 children: "Profile"
                             }, void 0, false, {
                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
