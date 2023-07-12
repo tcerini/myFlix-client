@@ -1,13 +1,44 @@
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import "./movie-view.scss";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user, updatedUser, token }) => {
 
     const { movieId } = useParams();
     const movie = movies.find((movie) => movie._id === movieId);
+
+    const [Favourite, setFavourite] = useState(
+      user.FavouriteMovies.includes(Movie._id)
+    );  
+
+    const addFavourite = () => {
+      fetch(
+        `https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+        {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return false;
+          }
+        })
+        .then((user) => {
+          if (user) {
+            setFavourite(true);
+            updatedUser(user);
+          }
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    };
 
     return (
       <Card className="shadow p-3 mb-5 bg-white rounded">
@@ -42,6 +73,13 @@ export const MovieView = ({ movies }) => {
           <Link to={`/`}>
             <Button>Back</Button>
           </Link>
+
+          {Favourite ? (
+                <Button onClick={removeFavourites}>Remove from favourites</Button>
+            ) : (
+                <Button onClick={addFavourite}>Add to favourites</Button>
+          )}
+
         </Card.Body>
       </Card>
     );
