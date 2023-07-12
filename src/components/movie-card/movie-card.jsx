@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -21,10 +21,10 @@ export const MovieCard = ({ movie }) => {
   );
 };
 
-//define all the props constraints for the MovieCard
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
-};
+// //define all the prop constraints for the MovieCard
+// MovieCard.propTypes = {
+//   movie: PropTypes.shape({
+//     Title: PropTypes.string.isRequired
+//   }).isRequired,
+//   onMovieClick: PropTypes.func.isRequired
+// };
