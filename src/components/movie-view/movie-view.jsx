@@ -40,6 +40,32 @@ export const MovieView = ({ movies, user, updatedUser, token }) => {
         });
     };
 
+    const removeFavourite = () => {
+      fetch(
+        `https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+        {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return false;
+          }
+        })
+        .then((user) => {
+          if (user) {
+            setFavourite(false);
+            updatedUser(user);
+          }
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    };
+
     return (
       <Card className="shadow p-3 mb-5 bg-white rounded">
         <div className="card mx-auto">
@@ -75,7 +101,7 @@ export const MovieView = ({ movies, user, updatedUser, token }) => {
           </Link>
 
           {Favourite ? (
-                <Button onClick={removeFavourites}>Remove from favourites</Button>
+                <Button onClick={removeFavourite}>Remove from favourites</Button>
             ) : (
                 <Button onClick={addFavourite}>Add to favourites</Button>
           )}
