@@ -17,7 +17,8 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
             Username: username,
             Password: password,
             Email: email,
-            BirthDate: birthday
+            BirthDate: birthday,
+            FavouriteMovies: []
         };
 
         fetch(`https://tc-movie-api.herokuapp.com/users/${user.Username}`, {
@@ -92,6 +93,11 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                     <Col className='mt-2'>
                     <Card.Text> 
                         Email: {user.Email}
+                    </Card.Text>
+                    </Col>
+                    <Col className='mt-2'>
+                    <Card.Text> 
+                        Favourite Movies: {user.FavouriteMovies}
                     </Card.Text>
                     </Col>
                 </div>
