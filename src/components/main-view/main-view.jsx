@@ -19,7 +19,7 @@ export const MainView = () => {
   //updates users state by taking users actions and putting them in setUser and then updating the new information to the users state
   const updateUser = (user) => {
     setUser(user);
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   useEffect(() => {
