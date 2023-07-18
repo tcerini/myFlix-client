@@ -16,6 +16,12 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
 
+  //updates users state by taking users actions and putting them in setUser and then updating the new information to the users state
+  const updateUser = (user) => {
+    setUser(user);
+    localStorage.setItem('user', JSON.stringify(user));
+  };
+
   useEffect(() => {
     if (!token) {
       return;
@@ -34,10 +40,10 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar
-          user={user}
-          token={token}
-          setUser={setUser}
-          setToken={setToken}
+        user={user}
+        token={token}
+        setUser={setUser}
+        setToken={setToken}
       />    
       <Row className="justify-content-md-center">
         <Routes>
@@ -89,7 +95,13 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView 
+                      movies={movies} 
+                      user={user}
+                      token={token}
+                      setUser={setUser}
+                      updateUser={updateUser}
+                    />
                   </Col>
                 )}
               </>
@@ -130,6 +142,7 @@ export const MainView = () => {
                       token={token}
                       setUser={setUser}
                       movies={movies}
+                      updateUser={updateUser}
                     />
                   </Col>
                 )}

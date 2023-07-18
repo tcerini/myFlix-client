@@ -5,13 +5,13 @@ import "./movie-view.scss";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-export const MovieView = ({ movies, user, updatedUser, token }) => {
+export const MovieView = ({ movies, user, token, updateUser }) => {
 
     const { movieId } = useParams();
     const movie = movies.find((movie) => movie._id === movieId);
 
     const [Favourite, setFavourite] = useState(
-      user.FavouriteMovies.includes(Movie._id)
+      user.FavouriteMovies.includes(movie._id)
     );  
 
     const addFavourite = () => {
@@ -32,7 +32,7 @@ export const MovieView = ({ movies, user, updatedUser, token }) => {
         .then((user) => {
           if (user) {
             setFavourite(true);
-            updatedUser(user);
+            updateUser(user);
           }
         })
         .catch((e) => {
@@ -48,22 +48,25 @@ export const MovieView = ({ movies, user, updatedUser, token }) => {
           headers: { Authorization: `Bearer ${token}` }
         }
       )
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            return false;
-          }
-        })
-        .then((user) => {
-          if (user) {
-            setFavourite(false);
-            updatedUser(user);
-          }
-        })
-        .catch((e) => {
-          alert(e);
-        });
+
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return false;
+        }
+      })
+
+      .then((user) => {
+        if (user) {
+          setFavourite(false);
+          updateUser(user);
+        }
+      })
+      
+      .catch((e) => {
+        alert(e);
+      });
     };
 
     return (
