@@ -46710,7 +46710,7 @@ const MovieView = ({ movies , user , token , updateUser  })=>{
     const movie = movies.find((movie)=>movie._id === movieId);
     const [Favourite, setFavourite] = (0, _react.useState)(user.FavouriteMovies.includes(movie._id));
     const addFavourite = ()=>{
-        fetch(`https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
+        fetch(`https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -46728,7 +46728,7 @@ const MovieView = ({ movies , user , token , updateUser  })=>{
         });
     };
     const removeFavourite = ()=>{
-        fetch(`https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
+        fetch(`https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`

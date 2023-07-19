@@ -16,7 +16,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
     const addFavourite = () => {
       fetch(
-        `https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+        `https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
         {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}` }
@@ -42,7 +42,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
     const removeFavourite = () => {
       fetch(
-        `https://tc-movie-app.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+        `https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
         {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${token}` }
