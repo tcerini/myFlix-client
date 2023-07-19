@@ -33,7 +33,6 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
           if (user) {
             setFavourite(true);
             updateUser(user);
-            alert("Favourite Added");
           }
         })
         .catch((e) => {
@@ -62,7 +61,6 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
         if (user) {
           setFavourite(false);
           updateUser(user);
-          alert("Favourite Removed");
         }
       })
       
