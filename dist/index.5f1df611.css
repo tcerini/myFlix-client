@@ -13201,8 +13201,14 @@ textarea.form-control-lg {
   width: 400px;
 }
 
+.card-aspects {
+  height: 100%;
+  margin: auto;
+}
+
 .moviecard-img {
   max-width: 200px;
+  margin: auto;
 }
 
 .info-category {
