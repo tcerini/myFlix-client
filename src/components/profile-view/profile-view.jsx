@@ -5,11 +5,11 @@ import { Col, Container, Card } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
-export const ProfileView = ({ user, token, setUser, movies, movie, onLogout }) => {
+export const ProfileView = ({ user, token, setUser, movies, updateUser }) => {
     const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user.Email);
-    const [birthday, setBirthday] = useState(user.Birthday);
+    const [birthday, setBirthday] = useState(user.Birthday.slice(0, 10));
    
     const favouriteMovies = movies.filter((movie) => {
         return user.FavouriteMovies.includes(movie._id)
@@ -23,7 +23,7 @@ export const ProfileView = ({ user, token, setUser, movies, movie, onLogout }) =
             Username: username,
             Password: password,
             Email: email,
-            BirthDate: birthday,
+            Birthday: birthday,
             FavouriteMovies: []
         };
 
@@ -40,15 +40,15 @@ export const ProfileView = ({ user, token, setUser, movies, movie, onLogout }) =
             } else {
                 alert("Update failed.")
             }
-        }).then((data) => {
+        }).then((data) => { alert("User Updated")
             localStorage.setItem("user", JSON.stringify(data));
             setUser(data);
         })
     };
 
-    const removeFavourite = () => {
+    const removeFavourite = (movieIdToRemove) => {
         fetch(
-          `https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+          `https://tc-movie-api.herokuapp.com/users/${user.Username}/movies/${movieIdToRemove}`,
           {
             method: 'DELETE',
             headers: { Authorization: `Bearer ${token}` }
@@ -65,7 +65,6 @@ export const ProfileView = ({ user, token, setUser, movies, movie, onLogout }) =
   
         .then((user) => {
           if (user) {
-            setFavourite(false);
             updateUser(user);
           }
         })
@@ -137,7 +136,11 @@ export const ProfileView = ({ user, token, setUser, movies, movie, onLogout }) =
                             {favouriteMovies.map((movie) => (
                                 <Col className='mt-2' key={movie._id} md={4}>
                                     <MovieCard movie={movie} className="shadow p-3 mb-5 bg-white rounded card-aspects"></MovieCard>
-                                    <Button movie={movie} onClick={removeFavourite}>Remove from favourites</Button>  
+                                    <Button movie={movie} onClick={() => {
+                                        removeFavourite(movie._id)
+                                    }}>
+                                        Remove from favourites
+                                    </Button>  
                                 </Col>
                             ))}
                     </Row> 
