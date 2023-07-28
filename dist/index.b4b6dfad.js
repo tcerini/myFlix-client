@@ -47346,7 +47346,6 @@ const ProfileView = ({ user , token , setUser , movies , updateUser  })=>{
             if (response.ok) return response.json();
             else alert("Update failed.");
         }).then((data)=>{
-            alert("User Updated");
             localStorage.setItem("user", JSON.stringify(data));
             setUser(data);
         });
