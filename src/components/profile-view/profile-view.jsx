@@ -89,38 +89,11 @@ export const ProfileView = ({ user, token, setUser, movies, updateUser }) => {
         })
     }
 
-    // const handleSubmit = (event) => {
-    //     // this prevents the default behavior of the form which is to reload the entire page
-    //     event.preventDefault();
-    
-    //     const data = {
-    //       Username: username,
-    //       Password: password,
-    //       Email: email,
-    //       Birthday: birthday
-    //     };
-    
-    //     fetch("https://tc-movie-api.herokuapp.com/users/${user.Username}", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       },
-    //       body: JSON.stringify(data)
-    //     }).then((response) => response.json())
-    //       .then((data) => {
-    //         console.log("Login response: ", data);
-    //         if (data.user) {
-    //           localStorage.setItem("user", JSON.stringify(data.user));
-    //           localStorage.setItem("token", data.token);
-    //           onLoggedIn(data.user, data.token);
-    //         } else {
-    //           alert("TBC");
-    //         }
-    //       })
-    //       .catch((e) => {
-    //         alert("Something went wrong");
-    //       });
-    // };
+    const onLogout = () => {
+        setUser(null);
+       setToken(null);
+       localStorage.clear();
+    };
 
     return (
         <>
