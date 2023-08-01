@@ -5,7 +5,7 @@ import { Col, Container, Card } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
-export const ProfileView = ({ user, token, setUser, movies, updateUser }) => {
+export const ProfileView = ({ user, token, setUser, setToken, movies, updateUser }) => {
     const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user.Email);
@@ -90,7 +90,7 @@ export const ProfileView = ({ user, token, setUser, movies, updateUser }) => {
     }
 
     const onLogout = () => {
-        setUser(null);
+       setUser(null);
        setToken(null);
        localStorage.clear();
     };

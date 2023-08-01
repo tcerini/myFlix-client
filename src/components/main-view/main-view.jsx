@@ -153,55 +153,5 @@ export const MainView = () => {
         </Routes>
       </Row>
     </BrowserRouter>
-  );
-  
-  // if (!user) {
-  //   return (
-  //     <Row>
-  //       <Col>
-  //         <LoginView 
-  //           onLoggedIn={(user, token) => {
-  //             setUser(user);
-  //             setToken(token);
-  //           }}
-  //         />
-  //         or
-  //         <SignupView />
-  //       </Col>
-  //     </Row>
-  //   );
-  // }
-
-  // if (selectedMovie) {
-  //   return (
-  //     <Row>
-  //       <Col md={{ span:6, offset:3 }}>
-  //         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>
-  //       </Col>
-  //     </Row>
-  //   );
-  // }
-
-  // if (movies.length === 0) {
-  //   return <div>The list is empty!</div>;
-  // }
-
-  // return (
-  //   <div class="shadow p-3 mb-5 bg-white rounded">
-  //       <Row>
-  //         {movies.map((movie) => (
-  //           <Col key={movie._id} md={3} className="mb-5">
-  //             <MovieCard
-  //               movie={movie}
-  //               onMovieClick={(newSelectedMovie) => {
-  //                 setSelectedMovie(newSelectedMovie);
-  //               }}
-  //             />
-  //           </Col>
-  //         ))}
-  //       </Row> 
-  //     <Button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
-  //   </div>
-  // );
-                
+  );                
 };
