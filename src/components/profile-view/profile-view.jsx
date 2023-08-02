@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MovieCard } from '../movie-card/movie-card';
 import Button from "react-bootstrap/Button";
 import { Col, Container, Card } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import PropTypes from "prop-types";
 
-export const ProfileView = ({ user, token, setUser, setToken, movies, updateUser }) => {
+export const ProfileView = ({ user, token, setUser, onLogout, movies, updateUser }) => {
     const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user.Email);
@@ -88,12 +89,6 @@ export const ProfileView = ({ user, token, setUser, setToken, movies, updateUser
             }
         })
     }
-
-    const onLogout = () => {
-       setUser(null);
-       setToken(null);
-       localStorage.clear();
-    };
 
     return (
         <>
@@ -183,3 +178,13 @@ export const ProfileView = ({ user, token, setUser, setToken, movies, updateUser
         </>         
     )
 }
+
+//define all the prop constraints
+ProfileView.propTypes = {
+    user: PropTypes.shape({
+      Username: PropTypes.string.isRequired,
+      Password: PropTypes.string.isRequired,
+      Email: PropTypes.string.isRequired,
+      Birthday: PropTypes.string.isRequired
+    }).isRequired
+};

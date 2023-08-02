@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const LoginView = ({ onLoggedIn } ) => {
   const [username, setUsername] = useState("")

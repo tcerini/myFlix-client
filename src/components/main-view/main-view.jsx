@@ -22,6 +22,12 @@ export const MainView = () => {
     localStorage.setItem("user", JSON.stringify(user));
   };
 
+  const onLogout = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
+  };
+
   useEffect(() => {
     if (!token) {
       return;
@@ -99,7 +105,6 @@ export const MainView = () => {
                       movies={movies} 
                       user={user}
                       token={token}
-                      setUser={setUser}
                       updateUser={updateUser}
                     />
                   </Col>
@@ -120,7 +125,9 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3}>
-                        <MovieCard movie={movie} />
+                        <MovieCard 
+                          movie={movie}
+                        />
                       </Col>
                     ))}
                   </>
@@ -143,6 +150,7 @@ export const MainView = () => {
                       setUser={setUser}
                       movies={movies}
                       updateUser={updateUser}
+                      onLogout={onLogout}
                     />
                   </Col>
                 )}

@@ -5,7 +5,7 @@ import "./movie-view.scss";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-export const MovieView = ({ movies, user, token, updateUser }) => {
+export const MovieView = ({ movies, user, token, updateUser, }) => {
 
     const { movieId } = useParams();
     const movie = movies.find((movie) => movie._id === movieId);
@@ -127,5 +127,5 @@ MovieView.propTypes = {
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired
     }),
-  }).isRequired
+  })
 };
