@@ -181,10 +181,10 @@ export const ProfileView = ({ user, token, setUser, onLogout, movies, updateUser
 
 //define all the prop constraints
 ProfileView.propTypes = {
-    user: PropTypes.shape({
-      Username: PropTypes.string.isRequired,
-      Password: PropTypes.string.isRequired,
-      Email: PropTypes.string.isRequired,
-      Birthday: PropTypes.string.isRequired
-    }).isRequired
+    user: PropTypes.object.isRequired,
+    token: PropTypes.string.isRequired,
+    setUser: PropTypes.func.isRequired,
+    onLogout: PropTypes.func.isRequired,
+    movies: PropTypes.array.isRequired,
+    updateUser: PropTypes.func.isRequired
 };

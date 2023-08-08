@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const NavigationBar = ({ user, setUser, setToken }) => {
 
@@ -42,4 +43,10 @@ export const NavigationBar = ({ user, setUser, setToken }) => {
             </Container>
         </Navbar>
     );
+};
+
+NavigationBar.propTypes = {
+    user: PropTypes.object.isRequired,
+    setUser: PropTypes.func.isRequired,
+    setToken: PropTypes.func.isRequired
 };

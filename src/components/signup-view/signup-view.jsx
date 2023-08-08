@@ -1,5 +1,6 @@
 import{ useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -77,3 +78,5 @@ export const SignupView = () => {
     </Form>
   );
 };
+
+SignupView.propTypes = {};
