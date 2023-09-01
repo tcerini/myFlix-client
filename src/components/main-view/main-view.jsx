@@ -15,6 +15,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null);
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   //updates users state by taking users actions and putting them in setUser and then updating the new information to the users state
   const updateUser = (user) => {
@@ -43,6 +44,18 @@ export const MainView = () => {
       });
   }, [token]);
 
+  useEffect(() => {
+    setFilteredMovies(movies);
+  }, [movies]);
+
+  const handleSearch = (e) => {
+    const searchWord = e.target.value.toLowerCase();
+    const filterArray = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchWord)
+    );
+    setFilteredMovies(filterArray);
+  };
+
   return (
     <BrowserRouter>
       <NavigationBar
@@ -50,6 +63,7 @@ export const MainView = () => {
         token={token}
         setUser={setUser}
         setToken={setToken}
+        handleSearch={handleSearch}
       />    
       <Row className="justify-content-md-center">
         <Routes>
@@ -123,7 +137,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movie) => (
+                    {filteredMovies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3}>
                         <MovieCard 
                           movie={movie}
