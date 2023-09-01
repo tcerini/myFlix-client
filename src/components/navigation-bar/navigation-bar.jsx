@@ -1,8 +1,8 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export const NavigationBar = ({ user, setUser, setToken }) => {
+export const NavigationBar = ({ user, setUser, setToken, handleSearch }) => {
 
     if (!user) {
         return null;
@@ -37,8 +37,19 @@ export const NavigationBar = ({ user, setUser, setToken }) => {
                         >
                         Logout
                     </Nav.Link>
-
+            
                     </Nav>
+                    
+                    <Form className="ml-auto">
+                        <Form.Control
+                            className="mr-sm-2"
+                            id="search-bar"
+                            type="text"
+                            placeholder="Search"
+                            onChange={handleSearch}
+                        ></Form.Control>
+                    </Form>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>

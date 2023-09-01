@@ -49,9 +49,9 @@ export const MainView = () => {
   }, [movies]);
 
   const handleSearch = (e) => {
-    const searchWord = e.target.value.toLowerCase();
+    const searchString = e.target.value;
     const filterArray = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchWord)
+      movie.title.includes(searchString)
     );
     setFilteredMovies(filterArray);
   };
@@ -175,5 +175,5 @@ export const MainView = () => {
         </Routes>
       </Row>
     </BrowserRouter>
-  );               
+  );  
 };
