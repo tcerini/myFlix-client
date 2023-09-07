@@ -51,7 +51,7 @@ export const MainView = () => {
   const handleSearch = (e) => {
     const searchString = e.target.value;
     const filterArray = movies.filter((movie) =>
-      movie.title.includes(searchString)
+      movie.Title.includes(searchString)
     );
     setFilteredMovies(filterArray);
   };

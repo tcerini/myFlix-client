@@ -28230,7 +28230,7 @@ const MainView = ()=>{
     ]);
     const handleSearch = (e)=>{
         const searchString = e.target.value;
-        const filterArray = movies.filter((movie)=>movie.title.includes(searchString));
+        const filterArray = movies.filter((movie)=>movie.Title.includes(searchString));
         setFilteredMovies(filterArray);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
